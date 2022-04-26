@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <style>
+        #container{
+            margin: 30px auto;
+            /* border: 1px solid red; */
+            text-align: center;
+        }
+        button{
+            display: inline-block;
+            padding: 10px;
+            height: 50px;
+            width: 100px;
+            margin: 30px 10px;
+        }
+        h1{
+            margin: 30px auto;
+        }
+        
+    </style>
+    <body>
+        <div id="container">
+            
+        </div>
+     
+        <script>
+            var count = localStorage.getItem('counter') || 0;
+            var container = document.getElementById('container');
+            var btn1 = document.createElement('button');
+            btn1.innerText = "INCREASE"
+
+            var btn2 = document.createElement('button');
+            btn2.innerText = "DECREASE"
+
+            var heading = document.createElement('h1');
+            heading.innerText = count
+
+
+
+            btn1.addEventListener('click', function(event){
+                count++;
+                heading.innerText = count
+                localStorage.setItem('counter',count)
+               
+            })
+
+
+            btn2.addEventListener('click', function(event){
+                count--;
+                heading.innerText = count
+                localStorage.setItem('counter',count)
+           
+             
+            })
+           
+
+            container.append(btn1, btn2, heading)
+
+        </script>
+    </body>
+</html>
